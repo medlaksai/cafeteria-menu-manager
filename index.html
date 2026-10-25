@@ -6,11 +6,11 @@
     <title>Cafeteria Menu Manager</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-slate-900 min-h-screen ">
-    <header class="bg-slate-800 py-4 h-20">
-        <nav class="flex justify-center px-5">
+<body class="bg-stone-100 text-stone-800 min-h-screen font-sans antialiased">
+    <header class="bg-white border-b border-stone-300 ">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 h-20">
             <a href="#" class="flex items-center gap-2">
-                <span class="text-white text-xl font-italic  font-semibold tracking-widest  ">
+                <span class="text-3xl font-bold text-emerald-900">
                     CAFETERIA MANAGER
                 </span>
             </a>
@@ -20,33 +20,33 @@
 
     <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
         <section>
-            <h1 class="text-taupe-100 text-2xl font-bold mb-4">Statistiques</h1>
+            <h1 class="text-amber-900 text-2xl font-bold mb-4">Statistiques</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <article class="border border-taupe-200 rounded-2xl p-4 text-center bg-slate-800 text-left">
-                    <span class="text-xs block text-taupe-100 tracking-wide text-left">Recettes en stock</span>
-                    <strong class="text-taupe-100 text-2xl font-bold mt-1">0</strong>
+                <article class="border border-stone-300  rounded-2xl p-4 text-center bg-white text-left">
+                    <span class="text-xs block text-mist-900 tracking-wide text-left">Recettes en stock</span>
+                    <strong class="text-olive-950 text-2xl font-bold mt-1">0</strong>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 text-center bg-slate-800 text-left">
-                    <span class="text-xs block text-taupe-100 tracking-wide ">Jours complétés</span>
-                    <strong class="text-taupe-100 text-2xl font-bold mt-1">0/5</strong>
+                <article class="border border-stone-300 rounded-2xl p-4 text-center bg-white text-left">
+                    <span class="text-xs block text-mist-900 tracking-wide ">Jours complétés</span>
+                    <strong class="text-olive-950 text-2xl font-bold mt-1">0/5</strong>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 text-left bg-slate-800">
-                    <span class="text-xs block text-taupe-100 tracking-wide ">Coût hebdomadaire par apprenant</span>
-                    <strong class="text-taupe-100 text-2xl font-bold mt-1">0 DH</strong>
+                <article class="border border-stone-300 rounded-2xl p-4 text-left bg-white">
+                    <span class="text-xs block text-mist-9000 tracking-wide ">Coût hebdomadaire par apprenant</span>
+                    <strong class="text-olive-950 text-2xl font-bold mt-1">0 DH</strong>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 bg-slate-800">
-                    <span class="text-xs block text-taupe-100 tracking-wide text-left">Équilibre nutritionnel</span>
-                    <strong class="text-yellow-500 text-2xl font-bold mt-1 ">À vérifier</strong>
+                <article class="border border-stone-300 rounded-2xl p-4 bg-white">
+                    <span class="text-xs block text-mist-900 tracking-wide text-left">Équilibre nutritionnel</span>
+                    <strong class="text-red-500 text-2xl font-bold mt-1 ">À vérifier</strong>
                 </article>
             </div>
         </section>
 
         <div class="grid grid-cols-1  lg:grid-cols-[40%_60%] gap-4 py-10">
-            <section class="border border-taupe-200 rounded-2xl p-4 bg-slate-800">
+            <section class="border border-stone-300 rounded-2xl p-4 bg-white">
                 <div class="flex items-center justify-between gap-4 mb-4 ">
-                    <h2 class="text-taupe-100 text-xl font-semibold">Inventaire des recettes</h2>
-                    <button type="button" class="add-repas px-4 py-2 border border-taupe-200 hover:bg-taupe-600 text-white rounded-2xl">
+                    <h2 class="text-mist-900 text-xl font-semibold">Inventaire des recettes</h2>
+                    <button type="button" class="add-repas cursor-pointer px-4 py-2 border border-taupe-200 hover:bg-black hover:text-white text-mist font-bold rounded-2xl">
                         + Ajouter une recette
                     </button>
                     
@@ -54,161 +54,160 @@
                 
                 <hr class="text-white opacity-50 py-2">   
 
-                    <div id="div-Repas" class="flex flex-col p-2 text-taupe-100 gap-2 place-content-center">
-                        <div id="items-cards" class="items-cards border border-taupe-200 text-taupe-100 rounded-2xl p-2 grid grid-cols-4  place-items-center p-2 gap-1 " >
-                            <h3 class="font-semibold ">Tajine poulet </h3>
-                            <span class="text-lime-500 ">Plat principal</span>
-                            <span class="place-self-center ">30dh</span>
-                            <div class="place-self-end ">
-                            <button type="button" class="edit-Btn text-white rounded-lg hover:bg-taupe-400  place-self-end ">
+                    <div id="div-Repas" class="flex flex-col p-2 text-mist-900 gap-2 ">
+                        <div id="items-cards" class="items-cards border border-taupe-200 text-mist-900 rounded-2xl  grid grid-cols-2 grid-rows-3 place-items-center p-2 gap-1" >
+                            <h3 class="font-semibold col-start-1 row-start-1 text-center ">Tajine poulet </h3>
+                            <span class="text-lime-500 col-start-1 row-start-2 text-center ">Plat principal</span>
+                            <span class="font-italic font-light col-start-2 row-start-2 w-full text-center"> Standar</span>
+                            <span class="place-self-center col-start-2 row-start-1 w-full text-center ">30dh</span>
+                            <div class="place-self-start px-4 ">
+                            <button type="button" class="edit-Btn col-start-1 row-start-3 text-green-700 rounded-lg hover:underline cursor-pointer  place-self-end ">
                                 Edit 
                             </button>
-                            <button type="button" class="delete-Btn text-white rounded-lg hover:bg-taupe-400 place-self-start pl-1">
+                            <button type="button" class="delete-Btn col-start-2 row-start-3 text-red-800 rounded-lg hover:underline cursor-pointer px-2">
                                 Delete 
                             </button>
                             </div>
                         </div>
                     </div>
-               
-              
             </section>
 
             <section class="" >
-                <h2 class="text-taupe-100 text-xl font-semibold mb-4">Menu de la semaine</h2>
+                <h2 class="text-mist-900 text-xl font-semibold mb-4">Menu de la semaine</h2>
                      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3">
+                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3 bg-white">
 
-                    <h3 class="text-base italic font-bold text-taupe-100">Lundi</h3>
+                    <h3 class="text-base italic font-bold text-mist-900">Lundi</h3>
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Entrée</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Entrée</label>
+                        <select data-category="Entree" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Plat principal</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Plat principal</label>
+                        <select data-category="Plat principal" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Dessert</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Dessert</label>
+                        <select data-category="Dessert" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
-                    <p class="text-taupe-100 ">0 / 50 DH</p>
-                    <button class="text-white border border-taupe-200  rounded-2xl"> En Reserve</button>
+                    <p class="text-mist-900 ">0 / 50 DH</p>
+                    <button class="text-black border border-taupe-200 cursor-pointer rounded-2xl hover:bg-red-700 hover:text-white"> En Reserve</button>
                 </article>
 
-                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3">
-                    <h3 class="text-base italic font-bold text-taupe-100">Mardi</h3>
+                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3 bg-white">
+                    <h3 class="text-base italic font-bold text-mist-900">Mardi</h3>
                     
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Entrée</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Entrée</label>
+                        <select data-category="Entree" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Plat principal</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Plat principal</label>
+                        <select data-category="Plat principal" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Dessert</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Dessert</label>
+                        <select data-category="Dessert" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2">
                             <option>Choisir</option>
                         </select>
                     </div>
-                    <p class="text-taupe-100">0 / 50 DH</p>
-                    <button class="text-white border border-taupe-200  rounded-2xl"> En Reserve</button>
+                    <p class="text-mist-900">0 / 50 DH</p>
+                    <button class="text-black border border-taupe-200 cursor-pointer rounded-2xl hover:bg-red-700 hover:text-white"> En Reserve</button>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3">
-                    <h3 class="text-base italic font-bold text-taupe-100">Mercredi</h3>
+                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3 bg-white">
+                    <h3 class="text-base italic font-bold text-mist-900">Mercredi</h3>
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Entrée</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Entrée</label>
+                        <select data-category="Entree" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Plat principal</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Plat principal</label>
+                        <select data-category="Plat principal" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Dessert</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Dessert</label>
+                        <select data-category="Dessert" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
-                    <p class="text-taupe-100">0 / 50 DH</p>
-                    <button class="text-white border border-taupe-200  rounded-2xl"> En Reserve</button>
+                    <p class="text-mist-900">0 / 50 DH</p>
+                    <button class="text-black border border-taupe-200 cursor-pointer rounded-2xl hover:bg-red-700 hover:text-white"> En Reserve</button>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3">
-                    <h3 class="text-base italic font-bold text-taupe-100">Jeudi</h3>
+                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3 bg-white">
+                    <h3 class="text-base italic font-bold text-mist-900">Jeudi</h3>
                     <div class="flex flex-col gap-1">
                         <hr class="text-white opacity-50">
-                        <label  class="text-taupe-100">Entrée</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Entrée</label>
+                        <select data-category="Entree" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Plat principal</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Plat principal</label>
+                        <select data-category="Plat principal"  class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Dessert</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Dessert</label>
+                        <select data-category="Dessert" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
-                    <p class="text-taupe-100">0 / 50 DH</p>
-                    <button class="text-white border border-taupe-200  rounded-2xl"> En Reserve</button>
+                    <p class="text-mist-900">0 / 50 DH</p>
+                    <button class="text-black border border-taupe-200 cursor-pointer rounded-2xl hover:bg-red-700 hover:text-white"> En Reserve</button>
                 </article>
-                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3">
-                    <h3 class="text-base italic font-bold text-taupe-100">Vendredi</h3>
+                <article class="border border-taupe-200 rounded-2xl p-4 flex flex-col gap-3 bg-white">
+                    <h3 class="text-base italic font-bold text-mist-900">Vendredi</h3>
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Entrée</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Entrée</label>
+                        <select data-category="Entree" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2 ">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Plat principal</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Plat principal</label>
+                        <select data-category="Plat principal" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2">
                             <option>Choisir</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label  class="text-taupe-100">Dessert</label>
-                        <select  class="border border-taupe-200 text-taupe-100 rounded-2xl p-2 hover:bg-taupe-600">
+                        <label  class="text-mist-900">Dessert</label>
+                        <select data-category="Dessert" class="repas-select border border-taupe-200 text-mist-900 rounded-2xl p-2">
                             <option>Choisir</option>
                         </select>
                     </div>
-                    <p class="text-taupe-100">0 / 50 DH</p>
-                    <button class="text-white border border-taupe-200  rounded-2xl"> En Reserve</button>
+                    <p class="text-mist-900">0 / 50 DH</p>
+                    <button class="text-black border border-taupe-200 cursor-pointer rounded-2xl hover:bg-red-700 hover:text-white"> En Reserve</button>
                 </article>
                 </div>
             </section>
@@ -216,28 +215,34 @@
     </main>
 
 <div class="popup-Form fixed inset-0 z-1 flex items-center justify-center bg-black/50 hidden">
-<div class="relative w-full max-w-md rounded-lg bg-slate-800 p-6 shadow-xl border border-taupe-200">
+<div     class="relative w-full max-w-md rounded-lg bg-white p-6 shadow-xl border border-taupe-200">
 <div class="mb-4 flex items-center justify-between ">
-        <h2 class="text-white">Ajouter une recette</h2>
+        <h2 class="text-black">Ajouter une recette</h2>
         <button class="close-popup bg-red-600 text-white w-10 rounded-2xl"> X</button>
          </div>
          <hr class="text-white opacity-50 py-2"> 
          <form class="flex flex-col gap-5 justify-center items-center ">
              
-        <label for="" id="" class="text-white">Nom de recette
+        <label for="" id="" class="text-black">Nom de recette
         <input id="name" type="text" class="rounded-2xl border border-taupe-600 px-2">
         </label>
-        <label for="" id="cetegory" class="text-white">Categorie
-        <select name="" id="categorie" class="rounded-2xl border border-taupe-600 items-center px-4 py-1 bg-taupe-400">
+        <label for="" id="cetegory" class="text-black">Categorie
+        <select name="" id="categorie" class="rounded-2xl border border-taupe-600 items-center px-4 py-1 ">
         <option value="Entrée" class="text-white">Entrée</option>
         <option value="Plat principal">Plat principal</option>
         <option value="Dessert">Dessert</option>
         </select>
         </label>
-        <label for="" class="text-white">Prix
+        <label for="" class="text-black">Prix
         <input id="price" type="text" class="rounded-2xl border border-taupe-600 px-4 py-1 w-20"> DH
         </label>
-        <button id="submit-Repas" class=" text-white rounded-2xl border border-taupe-600 px-4 py-1 hover:bg-taupe-600 hover:text-taupe-100">Submit</button>
+        <label class="text-black">Équilibre nutritionnel
+        <select name="" id="type" class="rounded-2xl border border-taupe-600 items-center px-4 py-1 ">
+        <option value="Normal">Standar</option>
+        <option value="Végétarien ">Végétarien </option>
+        </select>
+        </label>
+        <button id="submit-Repas" class=" text-black rounded-2xl border border-taupe-600 px-4 py-1 hover:bg-black  hover:text-white cursor-pointer">Submit</button>
         </form>
     </div>
 </div>
