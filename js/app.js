@@ -39,11 +39,18 @@ function fillSelect() {
 
 fillSelect();
 
+let editRepas = null;
 const popupsBtn = document.querySelector(".add-repas");
 const closeBtnPopUp = document.querySelector(".close-popup");
 const showModal = document.querySelector(".popup-Form");
 
 popupsBtn.addEventListener("click", () =>{
+
+    editRepas = null;
+    nameRepas.value = "";
+    priceRepas.value = "";
+    categorieSelect.value = "";
+    repasType.value = "";
     showModal.classList.remove("hidden");
     
 })
@@ -51,8 +58,7 @@ closeBtnPopUp.addEventListener("click", () =>{
     showModal.classList.add("hidden");
 })
 
-
-const button = document.getElementById("submit-Repas");
+const addBtn = document.getElementById("submit-Repas");
 const nameRepas = document.getElementById("name");
 const priceRepas = document.getElementById("price");
 const repasType = document.getElementById("type");
@@ -61,14 +67,22 @@ const container = document.getElementById("div-Repas");
 const template = document.getElementById("items-cards");
 const categorieSelect = document.getElementById("categorie");
 
-button.addEventListener("click", (event) => {
+addBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
   const valueName = nameRepas.value;
   const valuePrice = priceRepas.value;
   const valueCategorie = categorieSelect.value;
   const valueType = repasType.value;
-  const card = template.cloneNode(true);
+
+  let card;
+  if (editRepas){
+    card = editRepas;
+    }else {
+    card = template.cloneNode(true);
+    card.dataset.id = Date.now();
+    container.appendChild(card);
+      }
   const titre = card.querySelector("h3");
   const spans = card.querySelectorAll("span");
   
@@ -79,18 +93,23 @@ button.addEventListener("click", (event) => {
 
   
 
-  container.appendChild(card);
+  
   nameRepas.value = "" ;
   categorieSelect.value = "";
   repasType.value = "" ; 
   priceRepas.value = "" ; 
-
+  editRepas = null ; 
+  showModal.classList.add("hidden")
 });
+
+
 container.addEventListener("click", (event) => {
   const editBtn = event.target.closest(".edit-Btn");
-  const card = editBtn.closest(".items-cards");
-  const titre = card.querySelector("h3");
-  const spans = card.querySelectorAll("span");
+  if (!editBtn) return;
+  editRepas = editBtn.closest(".items-cards");
+  
+  const titre = editRepas.querySelector("h3");
+  const spans = editRepas.querySelectorAll("span");
   
   nameRepas.value = titre.textContent;
   categorieSelect.value = spans[0].textContent;
@@ -100,6 +119,8 @@ container.addEventListener("click", (event) => {
   showModal.classList.remove("hidden");
   
 });
+
+
 container.addEventListener("click", (event) => {
   const deleteBtn = event.target.closest(".delete-Btn");
   const card = deleteBtn.closest(".items-cards");
