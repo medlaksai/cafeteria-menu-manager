@@ -179,7 +179,7 @@ container.addEventListener("click", (event) => {
 
 container.addEventListener("click", (event) => {
   const deleteBtn = event.target.closest(".delete-Btn");
-  if (!editBtn) return;
+  if (!deleteBtn) return;
 
   const card = deleteBtn.closest(".items-cards");
   const id = Number(card.dataset.id)
