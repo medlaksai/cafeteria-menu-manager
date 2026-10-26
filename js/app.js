@@ -30,7 +30,6 @@ try {
         ? reppas.map(repas => ({ ...repas }))
         : JSON.parse(savedStocks);
 
-    if (!Array.isArray(stock)) throw new Error();
 } catch {
     stocks = reppas.map(repas => ({ ...repas }));
 }
@@ -45,11 +44,6 @@ function normalizeCategory(category) {
         .replace(/[\u0300-\u036f]/g, "")
         .trim()
         .toLowerCase();
-
-    if (value === "entree") return "entree";
-    if (value === "plat principal") return "plat principal";
-    if (value === "dessert") return "dessert";
-
     return value;
 }
 
@@ -77,10 +71,20 @@ let editRepasId = null;
 const originalTemplate = template.cloneNode(true);
 template.remove();
 
+
 function displayStocks() {
     container.innerHTML = "";
 
-    stocks.forEach(repas => {
+    const selects = document.querySelectorAll(".repas-select");
+    const usedRepas = [];
+
+    selects.forEach(function(select) {
+        if (select.value !== "") {
+            usedRepas.push(select.value);
+        }
+    });
+
+    stocks.forEach(function(repas) {
         const card = originalTemplate.cloneNode(true);
 
         card.removeAttribute("id");
@@ -89,39 +93,87 @@ function displayStocks() {
 
         const titre = card.querySelector("h3");
         const spans = card.querySelectorAll("span");
+        const editBtn = card.querySelector(".edit-Btn");
+        const deleteBtn = card.querySelector(".delete-Btn");
 
         titre.textContent = repas.reppasName;
         spans[0].textContent = repas.reppasCategory;
         spans[1].textContent = repas.reppasType || "Classique";
         spans[2].textContent = `${repas.reppasPrice} DH`;
+        
+        if (usedRepas.includes(String(repas.id))) {
+            card.classList.add("opacity-80");
+            titre.textContent += " (Utilisée)";
+            if (editBtn) {
+                editBtn.disabled = true;
+                editBtn.classList.add("opacity-30", "cursor-not-allowed" );
+            }
+
+            if (deleteBtn) {
+                deleteBtn.disabled = true;
+                deleteBtn.classList.add("opacity-30", "cursor-not-allowed");
+            }
+        }
 
         container.appendChild(card);
     });
 }
 
+
+
 function repasSelect() {
-    document.querySelectorAll(".repas-select").forEach(select => {
-        const previousValue = select.value;
+    const selects = document.querySelectorAll(".repas-select");
+
+    selects.forEach(function(select) {
+        const selectedValue = select.value;
         const category = normalizeCategory(select.dataset.category);
 
         select.innerHTML = '<option value="">Choisir</option>';
 
-        stocks
-            .filter(repas =>
-                normalizeCategory(repas.reppasCategory) === category
-            )
-            .forEach(repas => {
+        stocks.forEach(function(repas) {
+            if (normalizeCategory(repas.reppasCategory) === category) {
                 const option = document.createElement("option");
+
                 option.value = repas.id;
                 option.textContent = repas.reppasName;
+
                 select.appendChild(option);
+            }
+        });
+
+        select.value = selectedValue;
+    });
+
+    selects.forEach(function(select) {
+        const options = select.querySelectorAll("option");
+
+        options.forEach(function(option) {
+            if (option.value === "") return;
+
+            let alreadyUsed = false;
+
+            selects.forEach(function(otherSelect) {
+                if (
+                    otherSelect !== select &&
+                    otherSelect.value === option.value
+                ) {
+                    alreadyUsed = true;
+                }
             });
 
-        if ([...select.options].some(option => option.value === previousValue)) {
-            select.value = previousValue;
-        }
+            option.disabled = alreadyUsed;
+        });
     });
 }
+
+document.querySelectorAll(".repas-select").forEach(function(select) {
+    select.addEventListener("change", function() {
+        repasSelect();
+        displayStocks();
+        updateStats();
+    });
+});
+
 
 function updateStats() {
     const stockCount = document.getElementById("stock-count");
@@ -169,7 +221,7 @@ function updateStats() {
 
         if (costLabel) {
             costLabel.textContent = `${dailyCost.toFixed(2)} / 50 DH`;
-            costLabel.classList.toggle("text-red-600", dailyCost > 50);
+            costLabel.classList.toggle("text-red-600", dailyCost > 50 );
         }
     });
 
@@ -199,11 +251,6 @@ function updateStats() {
     }
 }
 
-function refreshApp() {
-    displayStocks();
-    repasSelect();
-    updateStats();
-}
 
 function openModal(repas = null) {
     editRepasId = repas ? repas.id : null;
@@ -284,6 +331,7 @@ form.addEventListener("submit", event => {
     saveStocks();
     closeModal();
     refreshApp();
+    alert("repas ajoutee avec succes")
 });
 
 container.addEventListener("click", event => {
@@ -318,5 +366,9 @@ container.addEventListener("click", event => {
 document.querySelectorAll(".repas-select").forEach(select => {
     select.addEventListener("change", updateStats);
 });
-
+function refreshApp() {
+    displayStocks();
+    repasSelect();
+    updateStats();
+}
 refreshApp();
