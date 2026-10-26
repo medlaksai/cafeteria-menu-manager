@@ -223,6 +223,7 @@ function updateStats() {
             costLabel.textContent = `${dailyCost.toFixed(2)} / 50 DH`;
             costLabel.classList.toggle("text-red-600", dailyCost > 50 );
         }
+        
     });
 
     if (daysCompletedElement) {
@@ -331,7 +332,7 @@ form.addEventListener("submit", event => {
     saveStocks();
     closeModal();
     refreshApp();
-    alert("repas ajoutee avec succes")
+    alert("Repas a ete ajoutee avec succes")
 });
 
 container.addEventListener("click", event => {
