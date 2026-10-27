@@ -362,9 +362,7 @@ container.addEventListener("click", event => {
     }
 });
 
-document.querySelectorAll(".repas-select").forEach(select => {
-    select.addEventListener("change", updateStats);
-});
+
 function refreshApp() {
     displayStocks();
     repasSelect();
