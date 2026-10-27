@@ -86,7 +86,7 @@ function displayStocks() {
 
     stocks.forEach(function(repas) {
         const card = originalTemplate.cloneNode(true);
-
+        
         card.removeAttribute("id");
         card.dataset.id = repas.id;
         card.classList.remove("hidden");
@@ -95,15 +95,16 @@ function displayStocks() {
         const spans = card.querySelectorAll("span");
         const editBtn = card.querySelector(".edit-Btn");
         const deleteBtn = card.querySelector(".delete-Btn");
-
+        
         titre.textContent = repas.reppasName;
         spans[0].textContent = repas.reppasCategory;
         spans[1].textContent = repas.reppasType || "Classique";
         spans[2].textContent = `${repas.reppasPrice} DH`;
         
+
         if (usedRepas.includes(String(repas.id))) {
             card.classList.add("opacity-80");
-            titre.textContent += " (Utilisée)";
+            titre.textContent += ` Assigné :  `;
             if (editBtn) {
                 editBtn.disabled = true;
                 editBtn.classList.add("opacity-30", "cursor-not-allowed" );
@@ -223,6 +224,7 @@ function updateStats() {
             costLabel.textContent = `${dailyCost.toFixed(2)} / 50 DH`;
             costLabel.classList.toggle("text-red-600", dailyCost > 50 );
         }
+        
     });
 
     if (daysCompletedElement) {
@@ -237,13 +239,10 @@ function updateStats() {
         const hasVegetarian = selectedTypes.includes("végétarien") ||
             selectedTypes.includes("vegetarien");
 
-        const hasBio = selectedTypes.includes("bio");
-
-        const hasSelections = selectedTypes.length > 0;
-
+        const hasSelections = selectedTypes.length = 1 ;
         if (!hasSelections) {
             nutritionStatusElement.textContent = "À vérifier";
-        } else if (hasVegetarian && hasBio) {
+        } else if (hasVegetarian) {
             nutritionStatusElement.textContent = "Varié";
         } else {
             nutritionStatusElement.textContent = "À vérifier";
@@ -331,7 +330,7 @@ form.addEventListener("submit", event => {
     saveStocks();
     closeModal();
     refreshApp();
-    alert("repas ajoutee avec succes")
+    alert("Repas a ete ajoutee avec succes")
 });
 
 container.addEventListener("click", event => {
