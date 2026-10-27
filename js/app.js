@@ -168,6 +168,7 @@ function repasSelect() {
 }
 
 document.querySelectorAll(".repas-select").forEach(function(select) {
+    
     select.addEventListener("change", function() {
         repasSelect();
         displayStocks();
